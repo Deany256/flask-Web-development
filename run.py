@@ -4,6 +4,7 @@ import os
 
 # Determine the configuration to use
 config_name = os.getenv('FLASK_CONFIG', 'default')
+print(f" * Current server configuration: {config_name}")
 
 # Create the app instance with the selected configuration
 app = create_app(config_class=config[config_name])
