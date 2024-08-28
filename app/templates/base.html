@@ -13,6 +13,10 @@
             <a href="{{ url_for('main.index') }}">Home</a>
             <a href="{{ url_for('auth.login') }}">Login</a>
             <a href="{{ url_for('auth.signup') }}">Sign Up</a>
+            {% if current_user.is_authenticated and current_user.is_admin() %}
+                <a href="{{ url_for('admin.index') }}">Admin</a>
+                <a href="{{ url_for('auth.profile') }}">Profile</a>
+            {% endif %}
         </nav>
     </header>
 
