@@ -34,3 +34,14 @@ def signup():
         flash('Congratulations, you are now registered!', 'success')
         return redirect(url_for('auth.login'))
     return render_template('auth/signup.html', form=form)
+
+@auth_bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
+
+@auth_bp.route('/profile')
+@login_required
+def profile():
+    return render_template('auth/profile.html')
